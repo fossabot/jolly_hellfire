@@ -1,0 +1,10 @@
+[
+  {
+    "uid": "Twitchbot",
+    "append": true,
+    "watch": false,
+    "script": "twitchbot.js",
+    "sourceDir": "/www/jolly_hellfire/",
+    "workingDir": "/www/jolly_hellfire/"
+  }
+]
