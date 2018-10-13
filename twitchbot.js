@@ -22,7 +22,7 @@ log.init(logParams);
 
 
 // API-Keys einlesen
-var contents = fs.readFileSync("./gitignore/secure.json");
+var contents = fs.readFileSync("./hidden/secure.json");
 var secureJSON = JSON.parse(contents);
 
 // Twitch Channel joinen
@@ -79,7 +79,7 @@ lurker.connect()
 // Counter initialisieren
 var counterBool = true;
 var cd = 1000;
-if (!fs.existsSync("./gitignore/counter.xxx")) {
+if (!fs.existsSync("./hidden/counter.xxx")) {
 	createNewCountfile()
 }
 
@@ -142,20 +142,20 @@ client.on('chat', function(channel, user, message, self) {
 		}
 		// Counter
 		if (counterBool && message) {
-			var jsonCounter = fs.readFileSync("./gitignore/counter.xxx");
+			var jsonCounter = fs.readFileSync("./hidden/counter.xxx");
 			var counter = JSON.parse(jsonCounter);
 			switch (message){
 				case "!wp":	{
 					counterBool = false;
 					counter.wp++;
 					client.say(c_name, "@" + user["username"] + " Julia hat schon " + counter.wp + " mal mehr oder weniger gut gespielt");
-					fs.writeFile("./gitignore/counter.xxx", JSON.stringify(counter), function(err) {
+					fs.writeFile("./hidden/counter.xxx", JSON.stringify(counter), function(err) {
 						if (err) {
 							log.error(err);
 							return console.log(err);
 						}
 						else{
-							log.info("WROTE ./gitignore/counter.xxx");
+							log.info("WROTE ./hidden/counter.xxx");
 						}
 					});
 					setTimeout(function() {
@@ -167,13 +167,13 @@ client.on('chat', function(channel, user, message, self) {
 					counterBool = false;
 					counter.spacebar++;
 					client.say(c_name, "@" + user["username"] + " " + counter.spacebar + " mal hat Julia jetzt schon die Leertaste durchgedrückt um dem Fähigkeitsschuss auszuweichen");
-					fs.writeFile("./gitignore/counter.xxx", JSON.stringify(counter), function(err) {
+					fs.writeFile("./hidden/counter.xxx", JSON.stringify(counter), function(err) {
 						if (err) {
 							log.error(err);
 							return console.log(err);
 						}
 						else{
-							log.info("WROTE ./gitignore/counter.xxx");
+							log.info("WROTE ./hidden/counter.xxx");
 						}
 					});
 					setTimeout(function() {
@@ -185,13 +185,13 @@ client.on('chat', function(channel, user, message, self) {
 					counterBool = false;
 					counter.boosted++;
 					client.say(c_name, "@" + user["username"] + " Julia wurde schon " + counter.boosted + " mal aus dem Leben geboosted");
-					fs.writeFile("./gitignore/counter.xxx", JSON.stringify(counter), function(err) {
+					fs.writeFile("./hidden/counter.xxx", JSON.stringify(counter), function(err) {
 						if (err) {
 							log.error(err);
 							return console.log(err);
 						}
 						else{
-							log.info("WROTE ./gitignore/counter.xxx");
+							log.info("WROTE ./hidden/counter.xxx");
 						}
 					});
 					setTimeout(function() {
@@ -203,13 +203,13 @@ client.on('chat', function(channel, user, message, self) {
 					counterBool = false;
 					counter.bluetrinket++;
 					client.say(c_name, "@" + user["username"] + " Julia hat bisher " + counter.bluetrinket + " mal ihr Trinket nicht upgegradet. Ja Gege!");
-					fs.writeFile("./gitignore/counter.xxx", JSON.stringify(counter), function(err) {
+					fs.writeFile("./hidden/counter.xxx", JSON.stringify(counter), function(err) {
 						if (err) {
 							log.error(err);
 							return console.log(err);
 						}
 						else{
-							log.info("WROTE ./gitignore/counter.xxx");
+							log.info("WROTE ./hidden/counter.xxx");
 						}
 					});
 					setTimeout(function() {
@@ -285,7 +285,7 @@ function createNewCountfile() {
 		boosted: 0,
 		bluetrinket: 0
 	};
-	fs.writeFile("./gitignore/counter.xxx", JSON.stringify(counter), (err) => {
+	fs.writeFile("./hidden/counter.xxx", JSON.stringify(counter), (err) => {
 		if (err) {
 			console.error(err);
 			log.error(err);
