@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 //dependencies laden
 const $ = require('jquery');
 const tmi = require("tmi.js");
