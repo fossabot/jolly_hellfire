@@ -45,7 +45,7 @@ var client = new tmi.client(twitch_options_bot);
 client.connect()
 	.then(function(address, port) {
 		console.log("tmi conneted: " + address + ":" + port);
-		log.info("tmi conneted: " + address + ":" + port);
+		log.debug("tmi conneted: " + address + ":" + port);
 	})
 	.catch(function(err) {
 		console.log("err: tsi cannot connect");
@@ -87,10 +87,11 @@ if (!fs.existsSync("./hidden/counter.xxx")) {
 client.on('chat', function(channel, user, message, self) {
 	var time = new Date();
 	time = time.toLocaleString();
-
+	log.info(user["username"] + "|" + message);
 	// Jewlia
 	if (channel === "#areukittenmerightmeow") {
 		var c_name = "areukittenmerightmeow";
+		log
 		switch (message) {
 			case "!commands":
 				client.say(c_name, "@" + user["username"] + " ! + nummer, snapchat, twitter, eugen, song, nudes, dansgame, clips, elo, realelo, merch, discord, wp, boosted, spacebar");
@@ -132,7 +133,7 @@ client.on('chat', function(channel, user, message, self) {
 				client.say(c_name, "@" + user["username"] + " Danke für deine Solidarität <3 Weitere Unterstützung kannst du uns hier da lassen: http://modgehalt.free-legal-girls.com/");
 				break;
 			case "!pi-temp":
-				if(user["username"] == "jeldan_van_boven") piTemp.measure(function(err, temp){client.say(c_name, "@" + user["username"] +  " Temp: " + temp + "C"); if(err){log.error(err)} else{log.info("PiTemp:" + temp)}});
+				if(user["username"] == "jeldan_van_boven") piTemp.measure(function(err, temp){client.say(c_name, "@" + user["username"] +  " Temp: " + temp + "C"); if(err){log.error(err)} else{log.debug("PiTemp:" + temp)}});
 				break;
 			case "!ping":
 				if(user.mod) client.say(c_name, "pong");
@@ -155,7 +156,7 @@ client.on('chat', function(channel, user, message, self) {
 							return console.log(err);
 						}
 						else{
-							log.info("WROTE ./hidden/counter.xxx");
+							log.debug("WROTE ./hidden/counter.xxx");
 						}
 					});
 					setTimeout(function() {
@@ -173,7 +174,7 @@ client.on('chat', function(channel, user, message, self) {
 							return console.log(err);
 						}
 						else{
-							log.info("WROTE ./hidden/counter.xxx");
+							log.debug("WROTE ./hidden/counter.xxx");
 						}
 					});
 					setTimeout(function() {
@@ -191,7 +192,7 @@ client.on('chat', function(channel, user, message, self) {
 							return console.log(err);
 						}
 						else{
-							log.info("WROTE ./hidden/counter.xxx");
+							log.debug("WROTE ./hidden/counter.xxx");
 						}
 					});
 					setTimeout(function() {
@@ -209,7 +210,7 @@ client.on('chat', function(channel, user, message, self) {
 							return console.log(err);
 						}
 						else{
-							log.info("WROTE ./hidden/counter.xxx");
+							log.debug("WROTE ./hidden/counter.xxx");
 						}
 					});
 					setTimeout(function() {
@@ -292,6 +293,6 @@ function createNewCountfile() {
 			return;
 		};
 		console.log("Counter-File has been created");
-		log.info("CREATED: counter.xxx")
+		log.debug("CREATED: counter.xxx")
 	});
 };
