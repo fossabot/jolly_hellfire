@@ -8,6 +8,7 @@ const jsome = require('jsome');
 const piTemp = require("pi-temperature");
 const log = require('noogger');
 const stringify = require('json-stable-stringify');
+const appRoot = require('app-root-path');
 
 
 // Init Log
@@ -17,14 +18,14 @@ var logParams = {
     dateTimeFormat: "DD-MM-YYYY HH:mm:ss",
     fileNameDateFormat: "YYYY-MM-DD",
     fileNamePrefix:"consolelog-",
-    outputPath: "logs/"
+    outputPath: appRoot + "/logs/"
 }; 
 log.init(logParams);
 
 log.alert("STARTING SCRIPT");
 
 // API-Keys einlesen
-var contents = fs.readFileSync("./hidden/secure.json");
+var contents = fs.readFileSync(appRoot + "/hidden/secure.json");
 var secureJSON = JSON.parse(contents);
 
 // Twitch Channel joinen
@@ -81,7 +82,7 @@ lurker.connect()
 // Counter initialisieren
 var counterBool = true;
 var cd = 1000;
-if (!fs.existsSync("./hidden/counter.xxx")) {
+if (!fs.existsSync(appRoot + "/hidden/counter.xxx")) {
 	createNewCountfile()
 }
 
@@ -145,14 +146,14 @@ client.on('chat', function(channel, user, message, self) {
 		}
 		// Counter
 		if (counterBool && message) {
-			var jsonCounter = fs.readFileSync("./hidden/counter.xxx");
+			var jsonCounter = fs.readFileSync(appRoot + "/hidden/counter.xxx");
 			var counter = JSON.parse(jsonCounter);
 			switch (message){
 				case "!wp":	{
 					counterBool = false;
 					counter.wp++;
 					client.say(c_name, "@" + user["username"] + " Julia hat schon " + counter.wp + " mal mehr oder weniger gut gespielt");
-					fs.writeFile("./hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
+					fs.writeFile(appRoot + "/hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
 						if (err) {
 							log.error(err);
 							return console.log(err);
@@ -170,7 +171,7 @@ client.on('chat', function(channel, user, message, self) {
 					counterBool = false;
 					counter.spacebar++;
 					client.say(c_name, "@" + user["username"] + " " + counter.spacebar + " mal hat Julia jetzt schon die Leertaste durchgedrückt um dem Fähigkeitsschuss auszuweichen");
-					fs.writeFile("./hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
+					fs.writeFile(appRoot + "/hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
 						if (err) {
 							log.error(err);
 							return console.log(err);
@@ -188,7 +189,7 @@ client.on('chat', function(channel, user, message, self) {
 					counterBool = false;
 					counter.boosted++;
 					client.say(c_name, "@" + user["username"] + " Julia wurde schon " + counter.boosted + " mal aus dem Leben geboosted");
-					fs.writeFile("./hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
+					fs.writeFile(appRoot + "/hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
 						if (err) {
 							log.error(err);
 							return console.log(err);
@@ -206,7 +207,7 @@ client.on('chat', function(channel, user, message, self) {
 					counterBool = false;
 					counter.bluetrinket++;
 					client.say(c_name, "@" + user["username"] + " Julia hat bisher " + counter.bluetrinket + " mal ihr Trinket nicht upgegradet. Ja Gege!");
-					fs.writeFile("./hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
+					fs.writeFile(appRoot + "/hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
 						if (err) {
 							log.error(err);
 							return console.log(err);
@@ -288,7 +289,7 @@ function createNewCountfile() {
 		boosted: 0,
 		bluetrinket: 0
 	};
-	fs.writeFile("./hidden/counter.xxx", stringify(counter, { space: '  ' }), (err) => {
+	fs.writeFile(appRoot + "/hidden/counter.xxx", stringify(counter, { space: '  ' }), (err) => {
 		if (err) {
 			console.error(err);
 			log.error(err);
