@@ -9,7 +9,7 @@ const piTemp = require("pi-temperature");
 const log = require('noogger');
 const stringify = require('json-stable-stringify');
 const appRootPath = require('app-root-path');
-const appRoot = appRoot + "/jolly_hellfire";
+const appRoot = appRootPath + "/jolly_hellfire";
 
 
 // Init Log
