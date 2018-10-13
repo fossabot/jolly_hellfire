@@ -8,7 +8,8 @@ const jsome = require('jsome');
 const piTemp = require("pi-temperature");
 const log = require('noogger');
 const stringify = require('json-stable-stringify');
-const appRoot = require('app-root-path');
+const appRootPath = require('app-root-path');
+const appRoot = appRoot + "/jolly_hellfire";
 
 
 // Init Log
