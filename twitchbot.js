@@ -132,7 +132,7 @@ client.on('chat', function(channel, user, message, self) {
 				client.say(c_name, "@" + user["username"] + " Danke für deine Solidarität <3 Weitere Unterstützung kannst du uns hier da lassen: http://modgehalt.free-legal-girls.com/");
 				break;
 			case "!pi-temp":
-				if(user["username"] == "jeldan_van_boven") piTemp.measure(function(err, temp){client.say(c_name, "@" + user["username"] +  " Temp: " + temp + "C");if(err){log.error(err)}else{log.info("PiTemp:" + temp)}};
+				if(user["username"] == "jeldan_van_boven") piTemp.measure(function(err, temp){client.say(c_name, "@" + user["username"] +  " Temp: " + temp + "C"); if(err){log.error(err)} else{log.info("PiTemp:" + temp)}});
 				break;
 			case "!ping":
 				if(user.mod) client.say(c_name, "pong");
