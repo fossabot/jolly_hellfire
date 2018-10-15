@@ -14,12 +14,12 @@ const appRoot = appRootPath + "/jolly_hellfire";
 
 // Init Log
 var logParams = {
-    consoleOutput : true,
-    consoleOutputLevel:'DEBUG',    
-    dateTimeFormat: "DD-MM-YYYY HH:mm:ss",
-    fileNameDateFormat: "YYYY-MM-DD",
-    fileNamePrefix:"consolelog-",
-    outputPath: appRoot + "/logs/"
+	consoleOutput : true,
+	consoleOutputLevel:'DEBUG',    
+	dateTimeFormat: "DD-MM-YYYY HH:mm:ss",
+	fileNameDateFormat: "YYYY-MM-DD",
+	fileNamePrefix:"consolelog-",
+	outputPath: appRoot + "/logs/"
 }; 
 log.init(logParams);
 
@@ -47,14 +47,14 @@ var twitch_options_bot = {
 };
 var client = new tmi.client(twitch_options_bot);
 client.connect()
-	.then(function(address, port) {
-		console.log("tmi conneted: " + address + ":" + port);
-		log.debug("tmi conneted: " + address + ":" + port);
-	})
-	.catch(function(err) {
-		console.log("err: tsi cannot connect");
-		log.error(err);
-	});
+.then(function(address, port) {
+	console.log("tmi conneted: " + address + ":" + port);
+	log.debug("tmi conneted: " + address + ":" + port);
+})
+.catch(function(err) {
+	console.log("err: tsi cannot connect");
+	log.error(err);
+});
 // Lurk User	
 var twitch_options_lurker = {
 	options: {
@@ -72,13 +72,13 @@ var twitch_options_lurker = {
 };
 var lurker = new tmi.client(twitch_options_lurker);
 lurker.connect()
-	.then(function(address, port) {
-		console.log("tsi conneted: " + address + ":" + port);
-	})
-	.catch(function(err) {
-		console.log("err: tsi cannot connect");
-		log.error(err);
-	});
+.then(function(address, port) {
+	console.log("tsi conneted: " + address + ":" + port);
+})
+.catch(function(err) {
+	console.log("err: tsi cannot connect");
+	log.error(err);
+});
 
 // Counter initialisieren
 var counterBool = true;
@@ -89,61 +89,61 @@ if (!fs.existsSync(appRoot + "/hidden/counter.xxx")) {
 
 // Chat-Befehle
 client.on('chat', function(channel, user, message, self) {
-	var time = new Date();
-	time = time.toLocaleString();
-	log.info(user["username"] + "|" + message);
+
 	// Jewlia
 	if (channel === "#areukittenmerightmeow") {
 		var c_name = "areukittenmerightmeow";
-		log
+		var time = new Date();
+		time = time.toLocaleString();
+		log.info(user["username"] + "|" + message);
 		switch (message) {
 			case "!commands":
-				client.say(c_name, "@" + user["username"] + " ! + nummer, snapchat, twitter, eugen, song, nudes, dansgame, clips, elo, realelo, merch, discord, wp, boosted, spacebar");
-				break;
+			client.say(c_name, "@" + user["username"] + " ! + nummer, snapchat, twitter, eugen, song, nudes, dansgame, clips, elo, realelo, merch, discord, wp, boosted, spacebar");
+			break;
 			case "!sr-help":
-				client.say(c_name, "@" + user["username"] + " only mod: !sr- + sextape, besoffen, saufen, hartz4, julia, chameleon, ganzganzbillig");
-				break;
+			client.say(c_name, "@" + user["username"] + " only mod: !sr- + sextape, besoffen, saufen, hartz4, julia, chameleon, ganzganzbillig");
+			break;
 			case "!clips":
-				client.say(c_name, "@" + user["username"] + " Die alten Clips sind zu finden unter: http://best-clips.free-legal-girls.com");
-				break;
+			client.say(c_name, "@" + user["username"] + " Die alten Clips sind zu finden unter: http://best-clips.free-legal-girls.com");
+			break;
 			case "!goa":
-				client.say(c_name, "@" + user["username"] + " Was ist Goa? http://goa.free-legal-girls.com");
-				break;
+			client.say(c_name, "@" + user["username"] + " Was ist Goa? http://goa.free-legal-girls.com");
+			break;
 			case "!superhiddenrealnacktbilder":
-				if (user["username"] == "areukittenmerightmeow" || user["username"] == "jeldan_van_boven" || user["username"] == "senpaimod_van_boven") client.say(c_name, "https://bit.ly/2hsNa0b");
-				break;
+			if (user["username"] == "areukittenmerightmeow" || user["username"] == "jeldan_van_boven" || user["username"] == "senpaimod_van_boven") client.say(c_name, "https://bit.ly/2hsNa0b");
+			break;
 			case "!realelo":
-				realElo(c_name, user["username"]);
-				break;
+			realElo(c_name, user["username"]);
+			break;
 			case "!discord":
-				client.say(c_name, "@" + user["username"] + " Discord: http://livechat.free-legal-girls.com/");
-				break;
+			client.say(c_name, "@" + user["username"] + " Discord: http://livechat.free-legal-girls.com/");
+			break;
 			case "!twitter":
-				client.say(c_name, "@" + user["username"] + " Twitter: http://xxx-blog.free-legal-girls.com/");
-				break;
+			client.say(c_name, "@" + user["username"] + " Twitter: http://xxx-blog.free-legal-girls.com/");
+			break;
 			case "!einnahmen":
-				client.say(c_name, "@" + user["username"] + " Danke an alle <3 http://moneyflow.free-legal-girls.com");
-				break;
+			client.say(c_name, "@" + user["username"] + " Danke an alle <3 http://moneyflow.free-legal-girls.com");
+			break;
 			case "!merch":
-				client.say(c_name, "@" + user["username"] + " Der Merch wird nächsten Monat released, hab Geduld");
-				break;
+			client.say(c_name, "@" + user["username"] + " Der Merch wird nächsten Monat released, hab Geduld");
+			break;
 			case "!cookorn":
-				client.say(c_name, "@cookorn stinkt Kappa");
-				break;
+			client.say(c_name, "@cookorn stinkt Kappa");
+			break;
 			case "!merch":
-				client.say(c_name, "@" + user["username"] + " Der Merch wird nächsten Monat released, hab Geduld");
-				break;
+			client.say(c_name, "@" + user["username"] + " Der Merch wird nächsten Monat released, hab Geduld");
+			break;
 			case "!voteformodgehalt":
-				client.say(c_name, "@" + user["username"] + " Danke für deine Solidarität <3 Weitere Unterstützung kannst du uns hier da lassen: http://modgehalt.free-legal-girls.com/");
-				break;
+			client.say(c_name, "@" + user["username"] + " Danke für deine Solidarität <3 Weitere Unterstützung kannst du uns hier da lassen: http://modgehalt.free-legal-girls.com/");
+			break;
 			case "!pi-temp":
-				if(user["username"] == "jeldan_van_boven") piTemp.measure(function(err, temp){client.say(c_name, "@" + user["username"] +  " Temp: " + temp + "C"); if(err){log.error(err)} else{log.debug("PiTemp:" + temp)}});
-				break;
+			if(user["username"] == "jeldan_van_boven") piTemp.measure(function(err, temp){client.say(c_name, "@" + user["username"] +  " Temp: " + temp + "C"); if(err){log.error(err)} else{log.debug("PiTemp:" + temp)}});
+			break;
 			case "!ping":
-				if(user.mod) client.say(c_name, "pong");
-				break;
+			if(user.mod) client.say(c_name, "pong");
+			break;
 			default:
-				break;
+			break;
 		}
 		// Counter
 		if (counterBool && message) {
@@ -229,28 +229,28 @@ client.on('chat', function(channel, user, message, self) {
 		if (message.startsWith("!sr-") && (user.mod || user["username"] == "Krabbechan")) {
 			switch (message) {
 				case "!sr-sextape":
-					client.say(c_name, "!sr JeMSac1f1Dg");
-					break;
+				client.say(c_name, "!sr JeMSac1f1Dg");
+				break;
 				case "!sr-julia":
-					client.say(c_name, "!sr 75oC13a2EtI");
-					break;
+				client.say(c_name, "!sr 75oC13a2EtI");
+				break;
 				case "!sr-saufen":
-					client.say(c_name, "!sr PP9I6WRD4VI");
-					break;
+				client.say(c_name, "!sr PP9I6WRD4VI");
+				break;
 				case "!sr-besoffen":
-					client.say(c_name, "!sr fF1dWRmjtKo");
-					break;
+				client.say(c_name, "!sr fF1dWRmjtKo");
+				break;
 				case "!sr-hartz4":
-					client.say(c_name, "!sr aMMqcBzMkRQ");
-					break;
+				client.say(c_name, "!sr aMMqcBzMkRQ");
+				break;
 				case "!sr-chameleon":
-					client.say(c_name, "!sr JmcA9LIIXWw");
-					break;
+				client.say(c_name, "!sr JmcA9LIIXWw");
+				break;
 				case "!sr-ganzganzbillig":
-					client.say(c_name, "!sr NdT-W-NhnlI");
-					break;
+				client.say(c_name, "!sr NdT-W-NhnlI");
+				break;
 				default:
-					break;
+				break;
 			}
 		}
 	}
@@ -261,23 +261,23 @@ function realElo(c_name, username) {
 	var winrate = 0;
 	var text = "";
 	fetch('https://euw1.api.riotgames.com/lol/league/v3/positions/by-summoner/82346830?api_key=' + secureJSON.league)
-		.then(res => res.json())
-		.then((out) => {
-			text = text + " 'J x l i a': " + out[0].tier + " " + out[0].rank + " " + out[0].leaguePoints + "LP ~~";
-		})
-		.catch(function(err) {
-			log.error(err);
-			console.log("CANNOT CONNECT");
-		});
+	.then(res => res.json())
+	.then((out) => {
+		text = text + " 'J x l i a': " + out[0].tier + " " + out[0].rank + " " + out[0].leaguePoints + "LP ~~";
+	})
+	.catch(function(err) {
+		log.error(err);
+		console.log("CANNOT CONNECT");
+	});
 	fetch('https://euw1.api.riotgames.com/lol/league/v3/positions/by-summoner/66653847?api_key=' + secureJSON.league)
-		.then(res => res.json())
-		.then((out) => {
-			text = text + " 'AreUKittnMe': " + out[0].tier + " " + out[0].rank + " " + out[0].leaguePoints + "LP ~~";
-		})
-		.catch(function(err) {
-			log.error(err);
-			console.log("CANNOT CONNECT");
-		});
+	.then(res => res.json())
+	.then((out) => {
+		text = text + " 'AreUKittnMe': " + out[0].tier + " " + out[0].rank + " " + out[0].leaguePoints + "LP ~~";
+	})
+	.catch(function(err) {
+		log.error(err);
+		console.log("CANNOT CONNECT");
+	});
 	setTimeout(function() {
 		client.say(c_name, "@" + username + text);
 	}, 800);
