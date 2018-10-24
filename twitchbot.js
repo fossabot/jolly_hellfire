@@ -127,9 +127,6 @@ client.on('chat', function(channel, user, message, self) {
 			case "!merch":
 			client.say(c_name, "@" + user["username"] + " Der Merch wird nächsten Monat released, hab Geduld");
 			break;
-			case "!cookorn":
-			client.say(c_name, "@cookorn stinkt Kappa");
-			break;
 			case "!merch":
 			client.say(c_name, "@" + user["username"] + " Der Merch wird nächsten Monat released, hab Geduld");
 			break;
@@ -208,6 +205,24 @@ client.on('chat', function(channel, user, message, self) {
 					counterBool = false;
 					counter.bluetrinket++;
 					client.say(c_name, "@" + user["username"] + " Julia hat bisher " + counter.bluetrinket + " mal ihr Trinket nicht upgegradet. Ja Gege!");
+					fs.writeFile(appRoot + "/hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
+						if (err) {
+							log.error(err);
+							return console.log(err);
+						}
+						else{
+							log.debug("WROTE ./hidden/counter.xxx");
+						}
+					});
+					setTimeout(function() {
+						counterBool = true;
+					}, cd);
+					break;
+				};
+				case "!cookorn": {
+					counterBool = false;
+					counter.cookorn++;
+					client.say(c_name, "@cookorn stinkt schon zum " + counter.cookorn + "ten mal Kappa");
 					fs.writeFile(appRoot + "/hidden/counter.xxx", stringify(counter, { space: '  ' }), function(err) {
 						if (err) {
 							log.error(err);
