@@ -96,6 +96,7 @@ client.on('chat', function(channel, user, message, self) {
 		var time = new Date();
 		time = time.toLocaleString();
 		log.info(user["username"] + "|" + message);
+		message = message.toLowerCase();
 		switch (message) {
 			case "!commands":
 			client.say(c_name, "@" + user["username"] + " ! + nummer, snapchat, twitter, eugen, song, nudes, dansgame, clips, elo, realelo, merch, discord, wp, boosted, spacebar, konzentrieren, oversleep, cookorn");
@@ -140,9 +141,6 @@ client.on('chat', function(channel, user, message, self) {
 			client.say(c_name, "DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL");
 			break;
 			case "lul":
-			client.say(c_name, "LUL");
-			break;
-			case "LUL":
 			client.say(c_name, "LUL");
 			break;
 			case "!pi-temp":
