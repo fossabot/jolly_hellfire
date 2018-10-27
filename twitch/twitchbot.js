@@ -9,7 +9,7 @@ const piTemp = require("pi-temperature");
 const log = require('noogger');
 const stringify = require('json-stable-stringify');
 const appRootPath = require('app-root-path');
-const appRoot = appRootPath + "/jolly_hellfire/twitch";
+const appRoot = appRootPath + "/jolly_hellfire";
 
 
 // Init Log
@@ -98,7 +98,7 @@ client.on('chat', function(channel, user, message, self) {
 		log.info(user["username"] + "|" + message);
 		switch (message) {
 			case "!commands":
-			client.say(c_name, "@" + user["username"] + " ! + nummer, snapchat, twitter, eugen, song, nudes, dansgame, clips, elo, realelo, merch, discord, wp, boosted, spacebar");
+			client.say(c_name, "@" + user["username"] + " ! + nummer, snapchat, twitter, eugen, song, nudes, dansgame, clips, elo, realelo, merch, discord, wp, boosted, spacebar, konzentrieren, oversleep, cookorn");
 			break;
 			case "!sr-help":
 			client.say(c_name, "@" + user["username"] + " only mod: !sr- + sextape, besoffen, saufen, hartz4, julia, chameleon, ganzganzbillig");
@@ -132,6 +132,18 @@ client.on('chat', function(channel, user, message, self) {
 			break;
 			case "!voteformodgehalt":
 			client.say(c_name, "@" + user["username"] + " Danke für deine Solidarität <3 Weitere Unterstützung kannst du uns hier da lassen: http://modgehalt.free-legal-girls.com/");
+			break;
+			case "!konzentrieren":
+			client.say(c_name, "@AreUKittenMeRightMeow Warden, Nicht Inten, Farmen, Dem Team helfen falls du gefeedet bist");
+			break;
+			case "!oversleep":
+			client.say(c_name, "DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL");
+			break;
+			case "lul":
+			client.say(c_name, "LUL");
+			break;
+			case "LUL":
+			client.say(c_name, "LUL");
 			break;
 			case "!pi-temp":
 			if(user["username"] == "jeldan_van_boven") piTemp.measure(function(err, temp){client.say(c_name, "@" + user["username"] +  " Temp: " + temp + "°C"); if(err){log.error(err)} else{log.debug("PiTemp:" + temp)}});
