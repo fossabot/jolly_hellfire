@@ -141,7 +141,7 @@ client.on('chat', function(channel, user, message, self) {
 			client.say(c_name, "DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL");
 			break;
 			case "lul":
-			if( user["username"] != "senpaimod_van_boven" &&  user["username"] == "Nightbot"){
+			if( user["username"] != "senpaimod_van_boven" &&  user["username"] != "Nightbot"){
 				client.say(c_name, "LUL");
 			}
 			break;
