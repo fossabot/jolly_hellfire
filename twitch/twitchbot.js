@@ -141,7 +141,9 @@ client.on('chat', function(channel, user, message, self) {
 			client.say(c_name, "DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL");
 			break;
 			case "lul":
-			client.say(c_name, "LUL");
+			if( user["username"] != "senpaimod_van_boven" &&  user["username"] == "Nightbot"){
+				client.say(c_name, "LUL");
+			}
 			break;
 			case "!pi-temp":
 			if(user["username"] == "jeldan_van_boven") piTemp.measure(function(err, temp){client.say(c_name, "@" + user["username"] +  " Temp: " + temp + "°C"); if(err){log.error(err)} else{log.debug("PiTemp:" + temp)}});
