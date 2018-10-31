@@ -1,3 +1,4 @@
 twitch/logs/
 twitch/hidden/
 webserver/logs/
+node_modules/

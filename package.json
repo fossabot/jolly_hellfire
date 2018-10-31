@@ -1,0 +1,32 @@
+{
+  "name": "jolly_hellfire",
+  "version": "1.0.0",
+  "description": "a simple twitchbot",
+  "main": "index.js",
+  "dependencies": {
+    "fs": "*",
+    "fs-extra": "*",
+    "noogger": "*",
+    "jquery": "^3.3.1",
+    "jsome": "^2.5.0",
+    "node-fetch": "^2.2.0",
+    "tmi.js": "^1.2.1",
+    "pi-temperature": "*",
+    "json-stable-stringify": "*",
+    "twitch-api-v5": "*",
+    "app-root-path": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jeldan/jolly_hellfire.git"
+  },
+  "author": "Jeldan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jeldan/jolly_hellfire/issues"
+  },
+  "homepage": "https://github.com/Jeldan/jolly_hellfire#readme"
+}
