@@ -4,17 +4,18 @@
   "description": "a simple twitchbot",
   "main": "index.js",
   "dependencies": {
+    "app-root-path": "*",
     "fs": "*",
     "fs-extra": "*",
-    "noogger": "*",
     "jquery": "^3.3.1",
     "jsome": "^2.5.0",
-    "node-fetch": "^2.2.0",
-    "tmi.js": "^1.2.1",
-    "pi-temperature": "*",
     "json-stable-stringify": "*",
-    "twitch-api-v5": "*",
-    "app-root-path": "*"
+    "node-fetch": "^2.2.0",
+    "noogger": "*",
+    "npm-check-updates": "^2.14.2",
+    "pi-temperature": "*",
+    "tmi.js": "^1.2.1",
+    "twitch-api-v5": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
