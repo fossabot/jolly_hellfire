@@ -9,7 +9,7 @@ const piTemp = require("pi-temperature");
 const log = require('noogger');
 const stringify = require('json-stable-stringify');
 const appRootPath = require('app-root-path');
-const appRoot = appRootPath + "/jolly_hellfire/twitch";
+const appRoot = appRootPath + "/twitch";
 
 
 // Init Log
@@ -116,6 +116,9 @@ client.on('chat', function(channel, user, message, self) {
 			case "!realelo":
 			realElo(c_name, user["username"]);
 			break;
+			case "!elo":
+			realElo(c_name, user["username"]);
+			break;
 			case "!discord":
 			client.say(c_name, "@" + user["username"] + " Discord: http://livechat.free-legal-girls.com/");
 			break;
@@ -140,6 +143,18 @@ client.on('chat', function(channel, user, message, self) {
 			case "!oversleep":
 			client.say(c_name, "DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL DIAMOND V LUL");
 			break;
+			case "!nummer":
+                        client.say(c_name, "@" + user["username"] + " 01761337420 Kappa");
+                        break;
+			case "!snapchat":
+                        client.say(c_name, "@" + user["username"] + " ju-icycat");
+                        break;
+                        case "!twitter":
+                        client.say(c_name, "@" + user["username"] + " http://xxx-blog.free-legal-girls.com/");
+                        break;
+			case "!nudes":
+                        client.say(c_name, "@" + user["username"] + " http://loli.free-legal-girls.com/");
+                        break;
 			case "lul":
 			if( user["username"] != "senpaimod_van_boven" &&  user["username"] != "Nightbot"){
 				client.say(c_name, "LUL");
@@ -290,7 +305,7 @@ function realElo(c_name, username) {
 	fetch('https://euw1.api.riotgames.com/lol/league/v3/positions/by-summoner/82346830?api_key=' + secureJSON.league)
 	.then(res => res.json())
 	.then((out) => {
-		text = text + " 'J x l i a': " + out[0].tier + " " + out[0].rank + " " + out[0].leaguePoints + "LP ~~";
+		text = text + " 'MENTAL SUICIDE': " + out[0].tier + " " + out[0].rank + " " + out[0].leaguePoints + "LP ~~";
 	})
 	.catch(function(err) {
 		log.error(err);
